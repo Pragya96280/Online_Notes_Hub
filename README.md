@@ -149,3 +149,5 @@ Run the full manual test plan in [`QA_CHECKLIST.md`](./QA_CHECKLIST.md). The dem
 - All frontend pages and interactions are kept in `client/src/App.jsx` as requested. `main.jsx` remains the React entry point.
 - For production-grade use with real students, consider email verification, password reset, audit logs, secure httpOnly cookie sessions, backups and rate-limit monitoring.
 - The admin dashboard intentionally shows note metadata rather than private note text.
+
+# Online_Notes_Hub
