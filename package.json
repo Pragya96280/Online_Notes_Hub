@@ -1,0 +1,29 @@
+{
+  "name": "notes-hub-mern",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A friendly full-stack study notes platform built with MongoDB, Express, React and Node.js.",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build": "npm run build --prefix client",
+    "start": "npm start --prefix server",
+    "check": "node --check server/index.js && node --check server/models/User.js && node --check server/models/Note.js && node --check server/models/Resource.js && node --check server/routes/auth.js && node --check server/routes/notes.js && node --check server/routes/resources.js && node --check server/routes/admin.js && node --check server/middleware/auth.js && node --check server/scripts/seedDemo.js && node --check server/data/subjects.js",
+    "seed:demo": "node server/scripts/seedDemo.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.5"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
