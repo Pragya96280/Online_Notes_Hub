@@ -21,17 +21,22 @@ app.disable('x-powered-by');
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(express.json({ limit: '100kb' }));
 app.use(express.urlencoded({ extended: false, limit: '20kb' }));
-// CORS configuration for Vercel frontend
+// CORS configuration for NotesHub frontend
 const allowedOrigins = [
   'https://online-notes-elg4sdfpr-pragya-omers-projects.vercel.app',
-  'https://online-notes-hub.vercel.app',
+  'https://online-notes-2vwqu18z8-pragya-omers-projects.vercel.app',
   'http://localhost:5173'
 ];
+
+// Allow only the NotesHub Vercel deployment URLs
+const isAllowedOrigin = (origin) =>
+  allowedOrigins.includes(origin) ||
+  /^https:\/\/online-notes-[a-z0-9-]+-pragya-omers-projects\.vercel\.app$/.test(origin);
 
 app.use((req, res, next) => {
   const origin = req.headers.origin;
 
-  if (origin && allowedOrigins.includes(origin)) {
+  if (origin && isAllowedOrigin(origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin);
     res.setHeader('Vary', 'Origin');
   }
