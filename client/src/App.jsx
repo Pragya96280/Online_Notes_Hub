@@ -6,7 +6,7 @@ import {
   Sparkles, Sun, Trash2, UserRound, X, Shield, Users, FileText, Activity, Send, RefreshCw, BadgeCheck
 } from 'lucide-react';
 
-const API_ROOT = import.meta.env.VITE_API_ROOT || '/api';
+const API_ROOT = import.meta.env.VITE_API_ROOT || 'https://online-notes-hub-wawi.onrender.com/api';
 
 export default function App() {
   const [token, setToken] = useState(() => localStorage.getItem('nh_token') || '');
